@@ -55,5 +55,6 @@ def compute_principle_left_eigen_vector(P):
     norm_pi = pi / pi.sum()
     return norm_pi 
 
-def power_iteration_method(P):
+def power_iteration_method(P, delta):
     pass 
+
