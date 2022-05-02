@@ -4,11 +4,12 @@
 ## 2A
 ```
 1. This assignment is aimed at implementing the PageRank algorithm from scratch.
-2. The PageRank algorithm is implemented with and without random teleportations using 
-the following two methods –
-A. Finding the principal left eigenvector of the probability transition matrix directly 
-   i.e., by making use of numerical linear algebra packages
-B. Finding the principal left eigenvector of the probability transition matrix Power Iteration method.
+
+2. The PageRank algorithm is implemented with and without random teleportations using the following two methods –
+   
+   A. Finding the principal left eigenvector of the probability transition matrix directly i.e., by making use of 
+   numerical linear algebra packages
+   B. Finding the principal left eigenvector of the probability transition matrix Power Iteration method.
 ```
 
 The first two steps remain same for the both the parts
