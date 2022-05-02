@@ -34,7 +34,8 @@ def constructProbTransMatrix(V, adjM, random_teleport=True, alpha=0.9):
         for i in range(V):
             connections = sum(adjM[i][:])
             if (connections == 0):
-                P[i][:] = 1 / float(V)
+                for j in range(V):
+                    P[i][j] = 1 / float(V)
             else:
                 for j in range(V):
                     if adjM[i][j] == 1:
@@ -50,6 +51,9 @@ def constructProbTransMatrix(V, adjM, random_teleport=True, alpha=0.9):
             for j in range(V):
                 if adjM[i][j] == 1:
                     P[i][j] = 1 / float(connections)
+        
+        P = np.array(P)
+        
     return P
 
 
@@ -83,8 +87,8 @@ def power_iteration(V, P, threshold=1e-9):
 
     t = 1
     while True:
-        x = np.dot(x, P)  
-        y = np.dot(x, P)
+        x = np.dot(x, P)     # x(t)
+        y = np.dot(x, P)     # x(t + 1)
         delta = y - x
 
         if delta.all() < threshold:
