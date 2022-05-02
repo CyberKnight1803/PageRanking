@@ -1,7 +1,9 @@
 import numpy as np 
 
 def constructAdjM(input_file):
-
+    '''
+    Constructs adjacency matrix 
+    '''
     with open(input_file, "r") as inFile:
         S = inFile.readline().split()
         V, E = int(S[0]), int(S[1])
@@ -21,6 +23,9 @@ def constructAdjM(input_file):
     return V, E, adjM 
 
 def constructProbTransMatrix(V, adjM, random_teleport=True, alpha=0.9):
+    '''
+    Constructs probability transition matrix using adjacency matrix 
+    '''
     P = []
     for _ in range(V):
         P.append(V * [0])
@@ -49,6 +54,10 @@ def constructProbTransMatrix(V, adjM, random_teleport=True, alpha=0.9):
 
 
 def compute_principle_left_eigen_vector(P):
+    '''
+    Computes principle left eigen vector using np
+    Takes P matrix as input
+    '''
     eigVals, eigVecs = np.linalg.eig(P)
     
     pi = eigVecs[:, eigVals.argmax()] # Compute with eigenvalue = 1
