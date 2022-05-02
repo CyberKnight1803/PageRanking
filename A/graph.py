@@ -64,6 +64,33 @@ def compute_principle_left_eigen_vector(P):
     norm_pi = pi / pi.sum()
     return norm_pi 
 
-def power_iteration_method(P, delta):
-    pass 
+def get_ranks(pi):
+    """
+        Prints pages in rank order
+    """
+    
+    ranks = np.argsort(pi)
+
+    for i in range(len(ranks)):
+        print(f"Rank {i + 1}:= Page {ranks[len(ranks) - i - 1] + 1}")
+
+def power_iteration(V, P, threshold=1e-9):
+    """
+        Computes steady state probability distribution with power iteration method
+    """
+
+    x = np.array([1.0] + (V - 1) * [0.0]).reshape(1, -1)  # (1, V)
+
+    t = 1
+    while True:
+        x = np.dot(x, P)  
+        y = np.dot(x, P)
+        delta = y - x
+
+        if delta.all() < threshold:
+            break 
+        
+        t += 1
+        
+    return x, t 
 
