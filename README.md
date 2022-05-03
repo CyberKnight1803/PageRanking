@@ -42,4 +42,3 @@ For part-2:
 2. We use fast method to compute the hub and authority score by computing principle eigenvector of A A.T and A.T A respectively
    
 3. We rank the pages via hub and authority scores
-=======
